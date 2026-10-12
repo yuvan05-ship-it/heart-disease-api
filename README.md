@@ -69,8 +69,8 @@ Response:
 
 ```json
 {
-  "prediction": <<FILL>>,
-  "probability": <<FILL>>
+  "prediction": 1,
+  "probability": 0.6159
 }
 ```
 
