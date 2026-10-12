@@ -9,8 +9,6 @@ A machine learning model served as a REST API with FastAPI, containerized with D
 
 ## Overview
 
-The project covers the full path from training to a live endpoint:
-
 1. Train and compare two classifiers with cross-validation
 2. Save the selected scikit-learn model with joblib
 3. Serve predictions through a FastAPI `/predict` endpoint with input validation
@@ -19,15 +17,15 @@ The project covers the full path from training to a live endpoint:
 
 ## Model
 
-- **Dataset:** Heart disease dataset (Kaggle, 13 clinical features, binary target), `<<FILL>>` rows after removing duplicates
+- **Dataset:** Heart disease dataset (Kaggle, 13 clinical features, binary target), 302 rows after removing duplicates. Classes are roughly balanced (45.7% no disease, 54.3% disease), so no resampling was used.
 - **Candidates:** Logistic Regression (scaler + classifier in one pipeline) vs. Random Forest (RandomizedSearchCV, 30 iterations)
 - **Validation:** repeated stratified 5-fold CV (3 repeats) on an 80/20 stratified train/test split
-- **Selected model:** `<<FILL>>`
+- **Selected model:** Random Forest
 
 | Metric | Score |
 |---|---|
 | Logistic Regression CV ROC AUC | 0.9063 ± 0.0344 |
-| Random Forest CV ROC AUC | `<<FILL>>` |
+| Random Forest CV ROC AUC | 0.9205 (tuned on these folds, so slightly optimistic) |
 | Held-out test ROC AUC | 0.8690 |
 | Held-out test accuracy | 0.79 (61 samples) |
 
